@@ -387,107 +387,6 @@
     font-size: 14px;
   }
 
-  /* LEVELS */
-  .levels {
-    background: var(--light);
-  }
-
-  .levels-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-
-  .level-card {
-    background: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(15, 26, 20, 0.06);
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .level-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 50px rgba(15, 26, 20, 0.12);
-  }
-
-  .level-header {
-    padding: 28px 30px;
-    color: var(--white);
-    position: relative;
-  }
-
-  .level-header.l1 { background: linear-gradient(135deg, #2e9e5a, #0a7d3c); }
-  .level-header.l2 { background: linear-gradient(135deg, #1f8a8a, #0a5e6b); }
-  .level-header.l3 { background: linear-gradient(135deg, #d98a00, #b56b00); }
-  .level-header.l4 { background: linear-gradient(135deg, #b03030, #7a1a1a); }
-
-  .level-header h3 {
-    font-size: 24px;
-    margin-bottom: 6px;
-  }
-
-  .level-header .level-tag {
-    font-size: 13px;
-    opacity: 0.9;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .level-body {
-    padding: 30px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .level-body p {
-    color: var(--gray);
-    margin-bottom: 20px;
-    font-size: 15px;
-  }
-
-  .level-list {
-    list-style: none;
-    margin-bottom: 24px;
-    flex: 1;
-  }
-
-  .level-list li {
-    padding: 8px 0 8px 28px;
-    position: relative;
-    color: var(--dark);
-    font-size: 15px;
-  }
-
-  .level-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    color: var(--primary);
-    font-weight: 800;
-  }
-
-  .level-price {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-
-  .level-price strong {
-    font-size: 28px;
-    color: var(--dark);
-  }
-
-  .level-price span {
-    color: var(--gray);
-    font-size: 14px;
-  }
-
   /* MONETIZATION */
   .monetization {
     background: var(--white);
@@ -836,7 +735,7 @@
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     gap: 40px;
     margin-bottom: 40px;
   }
@@ -925,7 +824,6 @@
     .section-title h2 { font-size: 32px; }
     .problem-grid { grid-template-columns: 1fr; }
     .method-steps { grid-template-columns: repeat(2, 1fr); }
-    .levels-grid { grid-template-columns: 1fr; }
     .mono-grid { grid-template-columns: 1fr; }
     .gabarito-features { grid-template-columns: 1fr; }
     .testi-grid { grid-template-columns: 1fr; }
@@ -955,7 +853,6 @@
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#metodo">O Método</a></li>
-      <li><a href="#niveis">Aulas por Nível</a></li>
       <li><a href="#monetizacao">Monetização</a></li>
       <li><a href="#gabarito">Aulas Prontas</a></li>
       <li><a href="#faq">Dúvidas</a></li>
@@ -1045,83 +942,6 @@
         <div class="step-number">4</div>
         <h3>Escala e Renda</h3>
         <p>Escale com turmas, eventos e mentorias para transformar o futevôlei em uma fonte de renda previsível.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="levels" id="niveis">
-  <div class="container">
-    <div class="section-title">
-      <span class="section-tag">Aulas por Nível</span>
-      <h2>Aulas Prontas com Metodologia LR para Cada Nível de Aluno</h2>
-      <p>Cada nível já vem com aula, exercícios e progressão prontos. Você só precisa aplicar na areia.</p>
-    </div>
-    <div class="levels-grid">
-      <div class="level-card">
-        <div class="level-header l1">
-          <span class="level-tag">Nível 1</span>
-          <h3>Iniciantes</h3>
-        </div>
-        <div class="level-body">
-          <p>Para quem nunca jogou futevôlei. Foco em fundamentos, confiança e primeiros movimentos na areia. Tudo pronto.</p>
-          <ul class="level-list">
-            <li>Toque de bola e controle de altura</li>
-            <li>Postura, base e deslocamento na areia</li>
-            <li>Recepção e primeiro toque seguro</li>
-            <li>Regras básicas e posicionamento em dupla</li>
-            <li>Plano de 8 aulas progressivas pronto</li>
-          </ul>
-          <div class="level-price">
-            <strong>R$ 150</strong>
-            <span>/ pacote de 8 aulas</span>
-          </div>
-          <a href="#cta" class="btn btn-green">Aplicar Esse Nível</a>
-        </div>
-      </div>
-
-      <div class="level-card">
-        <div class="level-header l2">
-          <span class="level-tag">Nível 2</span>
-          <h3>Intermediária</h3>
-        </div>
-        <div class="level-body">
-          <p>Para alunos que já jogam socialmente. Foco em consistência, leitura de jogo e fundamentos avançados. Tudo pronto.</p>
-          <ul class="level-list">
-            <li>Levantamento e ataque básico</li>
-            <li>Defesa e cobertura de quadra</li>
-            <li>Saques com direção e potência</li>
-            <li>Comunicação e estratégia de dupla</li>
-            <li>Plano de 10 aulas com metas semanais pronto</li>
-          </ul>
-          <div class="level-price">
-            <strong>R$ 220</strong>
-            <span>/ pacote de 10 aulas</span>
-          </div>
-          <a href="#cta" class="btn btn-green">Aplicar Esse Nível</a>
-        </div>
-      </div>
-
-      <div class="level-card">
-        <div class="level-header l3">
-          <span class="level-tag">Nível 3</span>
-          <h3>Avançada</h3>
-        </div>
-        <div class="level-body">
-          <p>Para atletas amadores competitivos. Foco em performance, tática e preparo físico específico. Tudo pronto.</p>
-          <ul class="level-list">
-            <li>Ataques potentes e variações de toque</li>
-            <li>Defesa avançada e leitura de atacante</li>
-            <li>Saques estratégicos e flutuação</li>
-            <li>Condicionamento e prevenção de lesões</li>
-            <li>Plano de 12 aulas com análise de vídeo pronto</li>
-          </ul>
-          <div class="level-price">
-            <strong>R$ 350</strong>
-            <span>/ pacote de 12 aulas</span>
-          </div>
-          <a href="#cta" class="btn btn-green">Aplicar Esse Nível</a>
-        </div>
       </div>
     </div>
   </div>
@@ -1263,7 +1083,7 @@
     </div>
     <div class="cta-buttons">
       <a href="#" class="btn btn-primary">Entrar no Método LR</a>
-      <a href="#niveis" class="btn btn-outline">Ver os Níveis Novamente</a>
+      <a href="#gabarito" class="btn btn-outline">Ver as Aulas Prontas</a>
     </div>
     <p class="cta-guarantee">🔒 Garantia incondicional de 7 dias. Se não gostar, devolvemos seu dinheiro.</p>
   </div>
@@ -1323,17 +1143,8 @@
         <h4>Navegação</h4>
         <ul>
           <li><a href="#metodo">O Método</a></li>
-          <li><a href="#niveis">Aulas por Nível</a></li>
           <li><a href="#monetizacao">Monetização</a></li>
           <li><a href="#gabarito">Aulas Prontas</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Níveis</h4>
-        <ul>
-          <li><a href="#niveis">Iniciantes</a></li>
-          <li><a href="#niveis">Intermediária</a></li>
-          <li><a href="#niveis">Avançada</a></li>
         </ul>
       </div>
       <div class="footer-col">
