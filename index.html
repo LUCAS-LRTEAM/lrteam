@@ -1,98 +1,692 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Método Professor LR | Transforme o Futevôlei em Profissão</title>
-    <meta name="description" content="Aprenda como dar aulas de futevôlei que fazem seus alunos evoluírem, conquistar mais alunos, cobrar mais caro e construir uma renda consistente.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #0a0e1a;
-            --bg-dark-2: #0f1525;
-            --bg-card: #141c30;
-            --bg-card-hover: #1a2440;
-            --blue: #1e90ff;
-            --blue-light: #4eb5ff;
-            --blue-dark: #0a4d8c;
-            --orange: #ff7a18;
-            --orange-light: #ffa050;
-            --orange-dark: #e6660a;
-            --white: #ffffff;
-            --gray: #8b95a7;
-            --gray-light: #c4ccd9;
-            --gray-dark: #4a5468;
-            --gradient-blue: linear-gradient(135deg, #0a4d8c 0%, #1e90ff 100%);
-            --gradient-orange: linear-gradient(135deg, #e6660a 0%, #ff7a18 100%);
-            --gradient-hero: linear-gradient(135deg, #0a0e1a 0%, #0a1a3a 50%, #0a0e1a 100%);
-            --shadow-glow-orange: 0 0 40px rgba(255, 122, 24, 0.35);
-            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
-            --radius: 16px;
-            --radius-sm: 10px;
-            --radius-lg: 24px;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método Professor LR | Transforme o Futevôlei em Profissão</title>
+<meta name="description" content="Aprenda como dar aulas de futevôlei que fazem seus alunos evoluírem, conquistar mais alunos, cobrar mais caro e construir uma renda consistente.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e1a;--bg2:#0f1525;--card:#141c30;--cardh:#1a2440;--blue:#1e90ff;--bluel:#4eb5ff;--blued:#0a4d8c;--orange:#ff7a18;--orangel:#ffa050;--oranged:#e6660a;--white:#fff;--gray:#8b95a7;--grayl:#c4ccd9;--grayd:#4a5468;--gb:linear-gradient(135deg,#0a4d8c,#1e90ff);--go:linear-gradient(135deg,#e6660a,#ff7a18);--gh:linear-gradient(135deg,#0a0e1a,#0a1a3a 50%,#0a0e1a);--sgo:0 0 40px rgba(255,122,24,.35);--sc:0 8px 32px rgba(0,0,0,.4);--r:16px;--rs:10px;--rl:24px;--t:.3s cubic-bezier(.4,0,.2,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--blued);border-radius:4px}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: var(--blue-dark); border-radius: 4px; }
+/* NAV */
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:16px 0;background:rgba(10,14,26,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(30,144,255,.12);transition:var(--t)}
+.navbar.scrolled{padding:10px 0;background:rgba(10,14,26,.95);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.navc{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.navl{font-size:1.4rem;font-weight:800;color:var(--white);text-decoration:none;letter-spacing:-.5px}
+.navl span{color:var(--orange)}
+.navls{display:flex;gap:32px;align-items:center;list-style:none}
+.navls a{color:var(--grayl);text-decoration:none;font-size:.9rem;font-weight:500;transition:var(--t)}
+.navls a:hover{color:var(--bluel)}
+.navcta{background:var(--go);color:var(--white)!important;padding:10px 24px;border-radius:50px;font-weight:700;font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 4px 20px rgba(255,122,24,.3);transition:var(--t)}
+.navcta:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(255,122,24,.5)}
+.navtg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.navtg span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--t)}
+.navtg.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.navtg.active span:nth-child(2){opacity:0}
+.navtg.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 
-        /* NAVBAR */
-        .navbar {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            padding: 16px 0;
-            background: rgba(10, 14, 26, 0.85);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(30, 144, 255, 0.12);
-            transition: var(--transition);
-        }
-        .navbar.scrolled { padding: 10px 0; background: rgba(10, 14, 26, 0.95); box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-size: 1.4rem; font-weight: 800; color: var(--white); text-decoration: none; letter-spacing: -0.5px; }
-        .nav-logo span { color: var(--orange); }
-        .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
-        .nav-links a { color: var(--gray-light); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: var(--transition); }
-        .nav-links a:hover { color: var(--blue-light); }
-        .nav-cta {
-            background: var(--gradient-orange); color: var(--white) !important;
-            padding: 10px 24px; border-radius: 50px; font-weight: 700; font-size: 0.85rem;
-            text-transform: uppercase; letter-spacing: 0.5px;
-            box-shadow: 0 4px 20px rgba(255,122,24,0.3); transition: var(--transition);
-        }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(255,122,24,0.5); }
-        .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; }
-        .nav-toggle span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: var(--transition); }
-        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-        .nav-toggle.active span:nth-child(2) { opacity: 0; }
-        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+/* CONTAINER & SECTIONS */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0;position:relative}
+.stag{display:inline-block;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;color:var(--orange);margin-bottom:16px;position:relative;padding-left:40px}
+.stag::before{content:'';position:absolute;left:0;top:50%;width:30px;height:2px;background:var(--orange);border-radius:2px}
+.stitle{font-size:2.6rem;font-weight:800;line-height:1.2;margin-bottom:20px;letter-spacing:-1px}
+.hl{background:var(--go);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hb{background:var(--gb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ssub{font-size:1.15rem;color:var(--grayl);max-width:700px;line-height:1.7}
+.tc{text-align:center}
+.tc .stag{padding-left:0}
+.tc .stag::before{display:none}
+.tc .ssub{margin:0 auto}
 
-        /* CONTAINER & SECTIONS */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .section { padding: 100px 0; position: relative; }
-        .section-tag {
-            display: inline-block; font-size: 0.75rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 3px; color: var(--orange);
-            margin-bottom: 16px; position: relative; padding-left: 40px;
-        }
-        .section-tag::before { content: ''; position: absolute; left: 0; top: 50%; width: 30px; height: 2px; background: var(--orange); border-radius: 2px; }
-        .section-title { font-size: 2.6rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; letter-spacing: -1px; }
-        .section-title .highlight { background: var(--gradient-orange); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .section-title .highlight-blue { background: var(--gradient-blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .section-subtitle { font-size: 1.15rem; color: var(--gray-light); max-width: 700px; line-height: 1.7; }
-        .text-center { text-align: center; }
-        .text-center .section-tag { padding-left: 0; }
-        .text-center .section-tag::before { display: none; }
-        .text-center .section-subtitle { margin: 0 auto; }
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:18px 40px;border-radius:50px;font-size:1.05rem;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;border:none;cursor:pointer;transition:var(--t);position:relative;overflow:hidden}
+.bp{background:var(--go);color:var(--white);box-shadow:var(--sgo)}
+.bp:hover{transform:translateY(-3px);box-shadow:0 8px 50px rgba(255,122,24,.5)}
+.bp::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .5s}
+.bp:hover::after{left:100%}
+.bs{background:transparent;color:var(--white);border:2px solid var(--blue)}
+.bs:hover{background:var(--blue);transform:translateY(-2px)}
+.bl{padding:22px 56px;font-size:1.15rem}
 
-        /* BUTTONS */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center; 
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;background:var(--gh);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(30,144,255,.12),transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,122,24,.08),transparent 70%);border-radius:50%}
+.hc{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hbadge{display:inline-flex;align-items:center;gap:10px;background:rgba(30,144,255,.1);border:1px solid rgba(30,144,255,.3);color:var(--bluel);padding:8px 20px;border-radius:50px;font-size:.8rem;font-weight:600;margin-bottom:28px;backdrop-filter:blur(10px)}
+.dot{width:8px;height:8px;background:var(--orange);border-radius:50%;animation:pd 2s ease-in-out infinite}
+@keyframes pd{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:.6}}
+.htitle{font-size:3.8rem;font-weight:900;line-height:1.1;letter-spacing:-2px;margin-bottom:24px}
+.gt{background:var(--go);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hsub{font-size:1.2rem;color:var(--grayl);margin-bottom:40px;line-height:1.7;max-width:520px}
+.hctag{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.hstats{display:flex;gap:40px;flex-wrap:wrap}
+.hstat .num{font-size:2.2rem;font-weight:900;background:var(--gb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.hstat .lbl{font-size:.85rem;color:var(--gray);margin-top:6px}
+.hv{position:relative;display:flex;justify-content:center;align-items:center}
+.hm{position:relative;width:100%;max-width:480px}
+.hmf{background:linear-gradient(145deg,#141c30,#0f1525);border:1px solid rgba(30,144,255,.2);border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 80px rgba(30,144,255,.1);position:relative;overflow:hidden}
+.hmf::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--go)}
+.mh{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.mb{background:var(--go);color:var(--white);padding:4px 12px;border-radius:6px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.mt{font-size:1rem;font-weight:700;color:var(--white)}
+.mmods{display:flex;flex-direction:column;gap:10px}
+.mmod{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:10px;transition:var(--t)}
+.mmod:hover{background:rgba(30,144,255,.08);border-color:rgba(30,144,255,.2);transform:translateX(4px)}
+.mmi{width:36px;height:36px;border-radius:8px;background:var(--gb);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:var(--white);flex-shrink:0}
+.mmi.o{background:var(--go)}
+.mmt{font-size:.85rem;color:var(--grayl);font-weight:500}
+.mmd{margin-left:auto;font-size:.75rem;color:var(--grayd)}
+.mprog{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.05)}
+.mpbar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.mpfill{height:100%;width:0%;background:var(--go);border-radius:3px;transition:width 2s ease-out}
+.mptext{display:flex;justify-content:space-between;margin-top:8px;font-size:.75rem;color:var(--grayd)}
+.fb{position:absolute;background:var(--card);border:1px solid rgba(30,144,255,.3);border-radius:12px;padding:12px 18px;box-shadow:0 8px 30px rgba(0,0,0,.4);display:flex;align-items:center;gap:10px;animation:fl 3s ease-in-out infinite}
+.fb.top{top:-20px;right:-10px;animation-delay:0s}
+.fb.bottom{bottom:-20px;left:-20px;animation-delay:1.5s}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.fb .icon{font-size:1.4rem}
+.fb .text{font-size:.8rem;font-weight:600}
+.fb .text small{display:block;color:var(--gray);font-size:.7rem;font-weight:400}
+
+/* AUDIENCE */
+.aud{background:var(--bg2);border-top:1px solid rgba(30,144,255,.08);border-bottom:1px solid rgba(30,144,255,.08)}
+.ag{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:50px}
+.ac{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:36px 28px;text-align:center;transition:var(--t);position:relative;overflow:hidden}
+.ac::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gb);transform:scaleX(0);transition:transform .4s ease}
+.ac:hover{transform:translateY(-6px);border-color:rgba(30,144,255,.2);background:var(--cardh)}
+.ac:hover::before{transform:scaleX(1)}
+.ac .icon{font-size:2.5rem;margin-bottom:16px;display:block}
+.ac h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+.ac p{font-size:.85rem;color:var(--gray);line-height:1.5}
+
+/* PROBLEMS */
+.pg{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:50px}
+.pc{background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:var(--r);padding:32px 24px;text-align:center;transition:var(--t)}
+.pc:hover{border-color:rgba(255,122,24,.2);transform:translateY(-4px);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.pc .pi{font-size:2.2rem;margin-bottom:16px;display:block}
+.pc h3{font-size:1rem;font-weight:700;margin-bottom:10px}
+.pc p{font-size:.82rem;color:var(--gray);line-height:1.5}
+
+/* SOLUTION */
+.sol{background:var(--bg2);position:relative;overflow:hidden}
+.sol::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(30,144,255,.06),transparent 60%);border-radius:50%}
+.soc{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.sov{position:relative}
+.scard{background:linear-gradient(145deg,#141c30,#0f1525);border:1px solid rgba(30,144,255,.15);border-radius:var(--rl);padding:40px;box-shadow:var(--sc);position:relative}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--go);border-radius:var(--rl) var(--rl) 0 0}
+.scl{display:inline-block;background:var(--go);color:var(--white);padding:6px 16px;border-radius:6px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
+.sct{font-size:1.6rem;font-weight:800;margin-bottom:24px}
+.scheck{list-style:none;display:flex;flex-direction:column;gap:14px}
+.scheck li{display:flex;align-items:flex-start;gap:12px;font-size:.95rem;color:var(--grayl)}
+.scheck .ck{width:22px;height:22px;border-radius:50%;background:var(--gb);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--white);flex-shrink:0;margin-top:2px;font-weight:800}
+
+/* MODULES */
+.mod{background:var(--bg)}
+.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.mc{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--r);padding:32px 28px;transition:var(--t);position:relative;overflow:hidden}
+.mc::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(30,144,255,.05),transparent);opacity:0;transition:opacity .4s ease}
+.mc:hover{transform:translateY(-6px);border-color:rgba(30,144,255,.25);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.mc:hover::before{opacity:1}
+.mnum{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;background:var(--gb);color:var(--white);font-size:1.3rem;font-weight:900;margin-bottom:20px;box-shadow:0 4px 16px rgba(30,144,255,.3)}
+.mnum.o{background:var(--go);box-shadow:0 4px 16px rgba(255,122,24,.3)}
+.mc h3{font-size:1.2rem;font-weight:700;margin-bottom:12px}
+.mc p{font-size:.9rem;color:var(--gray);line-height:1.6}
+.mitems{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.mitems li{font-size:.82rem;color:var(--grayl);padding-left:20px;position:relative}
+.mitems li::before{content:'✓';position:absolute;left:0;color:var(--blue);font-weight:700}
+
+/* BENEFITS */
+.ben{background:var(--bg2)}
+.bg{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:50px}
+.bc{text-align:center;padding:40px 24px;background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:var(--r);transition:var(--t)}
+.bc:hover{transform:translateY(-6px);border-color:rgba(255,122,24,.2);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+.bc .bi{width:64px;height:64px;margin:0 auto 20px;border-radius:16px;background:var(--gb);display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.bc .bi.o{background:var(--go)}
+.bc h3{font-size:1.15rem;font-weight:700;margin-bottom:10px}
+.bc p{font-size:.85rem;color:var(--gray);line-height:1.5}
+
+/* BONUS */
+.bon{background:var(--bg);position:relative;overflow:hidden}
+.bon::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 50% 50%,rgba(255,122,24,.06),transparent 50%)}
+.boc{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.bov{position:relative;display:flex;justify-content:center}
+.emock{position:relative;width:100%;max-width:400px}
+.ecover{background:linear-gradient(145deg,#141c30,#0a0e1a);border:1px solid rgba(255,122,24,.3);border-radius:12px;padding:50px 40px;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 60px rgba(255,122,24,.15);position:relative;text-align:center;transform:perspective(800px) rotateY(-8deg);transition:transform .5s ease}
+.ecover:hover{transform:perspective(800px) rotateY(0deg)}
+.elbl{display:inline-block;background:var(--go);color:var(--white);padding:4px 14px;border-radius:6px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+.et{font-size:1.4rem;font-weight:800;margin-bottom:12px;line-height:1.3}
+.est{font-size:.85rem;color:var(--gray);margin-bottom:24px}
+.ea{padding-top:20px;border-top:1px solid rgba(255,255,255,.1);font-size:.8rem;color:var(--bluel);font-weight:600}
+.fbadge{position:absolute;top:-16px;right:-16px;background:var(--go);color:var(--white);width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:900;text-transform:uppercase;box-shadow:0 8px 30px rgba(255,122,24,.4);transform:rotate(12deg);animation:pb 2s ease-in-out infinite;z-index:3}
+@keyframes pb{0%,100%{transform:rotate(12deg) scale(1)}50%{transform:rotate(12deg) scale(1.08)}}
+.bfeat{list-style:none;display:flex;flex-direction:column;gap:12px}
+.bfeat li{display:flex;align-items:center;gap:12px;font-size:.95rem;color:var(--grayl)}
+.bfeat .ci{width:24px;height:24px;border-radius:50%;background:var(--go);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--white);font-weight:800;flex-shrink:0}
+
+/* ABOUT */
+.abt{background:var(--bg2)}
+.abc{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:center}
+.abf{background:linear-gradient(145deg,#141c30,#0a0e1a);border:1px solid rgba(30,144,255,.2);border-radius:var(--rl);padding:40px;text-align:center;box-shadow:var(--sc);position:relative;overflow:hidden}
+.abf::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg,transparent,rgba(30,144,255,.08),transparent,rgba(255,122,24,.05),transparent);animation:rg 8s linear infinite}
+@keyframes rg{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.abfc{position:relative;z-index:2}
+.aba{width:120px;height:120px;margin:0 auto 20px;border-radius:50%;background:var(--gb);display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:var(--white);border:4px solid rgba(255,255,255,.1);box-shadow:0 8px 30px rgba(30,144,255,.3)}
+.abn{font-size:1.5rem;font-weight:800;margin-bottom:8px}
+.abr{font-size:.85rem;color:var(--bluel);font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.abt-text{font-size:1.05rem;color:var(--grayl);line-height:1.8;margin-bottom:28px}
+.abcr{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cr{display:flex;align-items:center;gap:12px;padding:16px;background:var(--card);border:1px solid rgba(255,255,255,.05);border-radius:var(--rs);transition:var(--t)}
+.cr:hover{border-color:rgba(30,144,255,.2);transform:translateX(4px)}
+.cr .ci{width:40px;height:40px;border-radius:10px;background:rgba(30,144,255,.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.cr .ct{font-size:.85rem;font-weight:600;color:var(--grayl)}
+
+/* GUARANTEE */
+.gua{background:var(--bg);text-align:center;padding:80px 0}
+.gseal{width:140px;height:140px;margin:0 auto 32px;border-radius:50%;border:3px solid var(--blue);display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 0 60px rgba(30,144,255,.2)}
+.gseal::before{content:'';position:absolute;inset:8px;border-radius:50%;border:1px dashed rgba(30,144,255,.3)}
+.gseal .sn{font-size:2.8rem;font-weight:900;background:var(--gb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.gseal .st{font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.gua h2{font-size:2rem;font-weight:800;margin-bottom:16px}
+.gua p{font-size:1.1rem;color:var(--grayl);max-width:600px;margin:0 auto;line-height:1.7}
+
+/* PRICING */
+.pri{background:var(--bg2);text-align:center;position:relative;overflow:hidden}
+.pri::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1000px;height:600px;background:radial-gradient(ellipse,rgba(255,122,24,.08),transparent 60%)}
+.pric{position:relative;z-index:2;max-width:600px;margin:0 auto}
+.pcard{background:linear-gradient(145deg,#141c30,#0f1525);border:2px solid rgba(255,122,24,.2);border-radius:var(--rl);padding:50px 40px;box-shadow:0 20px 80px rgba(0,0,0,.5),0 0 100px rgba(255,122,24,.08);position:relative}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--go);border-radius:var(--rl) var(--rl) 0 0}
+.pbadge{display:inline-block;background:var(--go);color:var(--white);padding:8px 20px;border-radius:50px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:30px;box-shadow:0 4px 20px rgba(255,122,24,.4)}
+.pold{font-size:1.3rem;color:var(--grayd);text-decoration:line-through;margin-bottom:8px}
+.plabel{font-size:.9rem;color:var(--gray);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.pval{font-size:4.5rem;font-weight:900;background:var(--go);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px;letter-spacing:-2px}
+.pinst{font-size:1rem;color:var(--grayl);margin-bottom:30px}
+.pfeat{list-style:none;text-align:left;margin-bottom:36px;display:flex;flex-direction:column;gap:12px}
+.pfeat li{display:flex;align-items:center;gap:12px;font-size:.95rem;color:var(--grayl)}
+.pfeat .ci{width:22px;height:22px;border-radius:50%;background:var(--gb);display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--white);font-weight:800;flex-shrink:0}
+.purg{background:rgba(255,122,24,.08);border:1px solid rgba(255,122,24,.2);border-radius:var(--rs);padding:16px;margin-bottom:30px;font-size:.85rem;color:var(--orangel);font-weight:500}
+
+/* FAQ */
+.faqc{max-width:800px;margin:50px auto 0}
+.faqi{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:var(--rs);margin-bottom:12px;overflow:hidden;transition:var(--t)}
+.faqi:hover{border-color:rgba(30,144,255,.15)}
+.faqi.active{border-color:rgba(30,144,255,.25);background:var(--cardh)}
+.faqq{padding:22px 28px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:1rem;font-weight:600;color:var(--white);transition:var(--t)}
+.faqq:hover{color:var(--bluel)}
+.faqi.active .faqq{color:var(--bluel)}
+.faqicon{width:28px;height:28px;border-radius:50%;background:rgba(30,144,255,.1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--bluel);flex-shrink:0;transition:var(--t)}
+.faqi.active .faqicon{background:var(--gb);color:var(--white);transform:rotate(45deg)}
+.faqa{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;padding:0 28px}
+.faqi.active .faqa{max-height:500px;padding:0 28px 22px}
+.faqa p{font-size:.92rem;color:var(--grayl);line-height:1.7}
+
+/* FINAL CTA */
+.fcta{background:var(--gh);text-align:center;padding:100px 0;position:relative;overflow:hidden}
+.fcta::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 50%,rgba(255,122,24,.06),transparent 50%)}
+.fctac{position:relative;z-index:2;max-width:700px;margin:0 auto;padding:0 24px}
+.fcta h2{font-size:3rem;font-weight:900;line-height:1.2;margin-bottom:24px;letter-spacing:-1px}
+.fcta p{font-size:1.2rem;color:var(--grayl);margin-bottom:40px;line-height:1.7}
+.fcd{display:inline-flex;align-items:center;gap:8px;background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.3);color:var(--orangel);padding:10px 24px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:32px}
+
+/* FOOTER */
+.footer{background:var(--bg);padding:60px 0 30px;border-top:1px solid rgba(30,144,255,.08)}
+.fc{max-width:1200px;margin:0 auto;padding:0 24px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.fb2 .logo{font-size:1.5rem;font-weight:800;margin-bottom:16px}
+.fb2 .logo span{color:var(--orange)}
+.fb2 p{font-size:.85rem;color:var(--gray);line-height:1.6;max-width:350px}
+.fcol h4{font-size:.9rem;font-weight:700;margin-bottom:16px;color:var(--white)}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fcol ul a{font-size:.85rem;color:var(--gray);text-decoration:none;transition:var(--t)}
+.fcol ul a:hover{color:var(--bluel)}
+.fbottom{padding-top:30px;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:.8rem;color:var(--grayd)}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:968px){
+.hc,.soc,.boc,.abc{grid-template-columns:1fr;gap:40px}
+.hv{order:-1}
+.htitle{font-size:2.6rem}
+.stitle{font-size:2rem}
+.ag{grid-template-columns:repeat(2,1fr)}
+.pg{grid-template-columns:repeat(2,1fr)}
+.mg{grid-template-columns:repeat(2,1fr)}
+.bg{grid-template-columns:repeat(2,1fr)}
+.abcr{grid-template-columns:1fr}
+.ft{grid-template-columns:1fr}
+.fcta h2{font-size:2.2rem}
+.pval{font-size:3.5rem}
+}
+@media(max-width:640px){
+.navls{display:none;position:fixed;top:60px;left:0;right:0;flex-direction:column;background:var(--bg2);padding:24px;gap:20px;border-bottom:1px solid rgba(30,144,255,.1)}
+.navls.open{display:flex}
+.navtg{display:flex}
+.hero{padding:100px 0 60px}
+.htitle{font-size:2rem}
+.hsub{font-size:1rem}
+.hstats{gap:24px}
+.hstat .num{font-size:1.6rem}
+.section{padding:60px 0}
+.stitle{font-size:1.6rem}
+.ag,.pg,.mg,.bg{grid-template-columns:1fr}
+.pg{display:flex;flex-direction:column;gap:16px}
+.btn{padding:16px 28px;font-size:.95rem}
+.bl{padding:18px 36px;font-size:1rem}
+.pcard{padding:32px 24px}
+.pval{font-size:3rem}
+.fcta h2{font-size:1.8rem}
+.fcta p{font-size:1rem}
+.hctag{flex-direction:column}
+.hctag .btn{width:100%}
+.fb{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+<div class="navc">
+<a href="#" class="navl">Método <span>Professor LR</span></a>
+<ul class="navls" id="navLinks">
+<li><a href="#metodo">O Método</a></li>
+<li><a href="#modulos">Módulos</a></li>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#faq">Dúvidas</a></li>
+<li><a href="#preco" class="navcta">Entrar Agora</a></li>
+</ul>
+<button class="navtg" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="hc">
+<div class="reveal">
+<div class="hbadge"><span class="dot"></span><span>Método Professor LR — Turma Limitada</span></div>
+<h1 class="htitle">Transforme sua paixão pelo <span class="gt">futevôlei</span> em uma profissão.</h1>
+<p class="hsub">Aprenda como dar aulas que realmente fazem seus alunos evoluírem, conquistar mais alunos, cobrar mais caro e construir uma renda consistente através do futevôlei.</p>
+<div class="hctag">
+<a href="#preco" class="btn bp bl">Quero Ser Professor</a>
+<a href="#metodo" class="btn bs bl">Conhecer o Método</a>
+</div>
+<div class="hstats">
+<div class="hstat"><div class="num">+2.000</div><div class="lbl">Alunos treinados</div></div>
+<div class="hstat"><div class="num">14</div><div class="lbl">Módulos completos</div></div>
+<div class="hstat"><div class="num">7 dias</div><div class="lbl">De garantia</div></div>
+</div>
+</div>
+<div class="hv reveal rd2">
+<div class="hm">
+<div class="hmf">
+<div class="mh"><span class="mb">Curso Completo</span><span class="mt">Método Professor LR</span></div>
+<div class="mmods">
+<div class="mmod"><div class="mmi">01</div><span class="mmt">Como montar aulas do zero</span><span class="mmd">12 min</span></div>
+<div class="mmod"><div class="mmi">02</div><span class="mmt">Metodologia para iniciantes</span><span class="mmd">18 min</span></div>
+<div class="mmod"><div class="mmi o">03</div><span class="mmt">Metodologia intermediários</span><span class="mmd">22 min</span></div>
+<div class="mmod"><div class="mmi">04</div><span class="mmt">Metodologia para avançados</span><span class="mmd">20 min</span></div>
+<div class="mmod"><div class="mmi o">05</div><span class="mmt">Como aumentar seu faturamento</span><span class="mmd">15 min</span></div>
+</div>
+<div class="mprog">
+<div class="mpbar"><div class="mpfill" id="progressFill"></div></div>
+<div class="mptext"><span>Progresso do curso</span><span id="progressLabel">0%</span></div>
+</div>
+</div>
+<div class="fb top"><span class="icon">🔥</span><div class="text">Acesso Imediato<small>Início hoje</small></div></div>
+<div class="fb bottom"><span class="icon">🏆</span><div class="text">Certificado<small>de conclusão</small></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="section aud" id="publico">
+<div class="container">
+<div class="tc reveal"><span class="stag">Para Quem É</span>
+<h2 class="stitle">Este método foi feito para <span class="hb">você</span></h2>
+<p class="ssub">Não importa onde você está hoje. Se você quer viver de futevôlei, o Método Professor LR te leva até lá.</p></div>
+<div class="ag">
+<div class="ac reveal"><span class="icon">🏐</span><h3>Atletas</h3><p>Você joga bem mas não sabe ensinar. Aprenda a transformar seu talento em aulas que geram renda.</p></div>
+<div class="ac reveal rd1"><span class="icon">📋</span><h3>Staffs</h3><p>Você acompanha atletas mas quer ir além. Domine a metodologia e seja referência no treinamento.</p></div>
+<div class="ac reveal rd2"><span class="icon">🎓</span><h3>Professores Iniciantes</h3><p>Você já dá aulas mas improvisa. Tenha um método pronto para acelerar a evolução dos seus alunos.</p></div>
+<div class="ac reveal rd3"><span class="icon">💪</span><h3>Quem Quer Viver do Futevôlei</h3><p>Você quer começar do zero e construir uma carreira. Receba o caminho completo, passo a passo.</p></div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="section" id="problemas">
+<div class="container">
+<div class="tc reveal"><span class="stag">O Problema</span>
+<h2 class="stitle">Você se reconhece em <span class="hl">alguma dessas situações?</span></h2>
+<p class="ssub">A maioria dos professores de futevôlei perde dinheiro todos os dias por causa de erros que parecem pequenos — mas destroem qualquer chance de crescer.</p></div>
+<div class="pg">
+<div class="pc reveal"><span class="pi">😰</span><h3>Sabe jogar, não sabe ensinar</h3><p>Você tem talento na areia mas trava quando precisa explicar. O aluno não evolui e você não entende o porquê.</p></div>
+<div class="pc reveal rd1"><span class="pi">💰</span><h3>Não consegue cobrar bem</h3><p>Cobra barato por medo de perder o aluno. Não tem pacotes, não tem precificação. Trabalha muito, ganha pouco.</p></div>
+<div class="pc reveal rd2"><span class="pi">📉</span><h3>Não consegue lotar turmas</h3><p>Fica dependendo de indicação. Não sabe atrair alunos nem se posicionar. Todo mês é uma incerteza.</p></div>
+<div class="pc reveal rd3"><span class="pi">🔄</span><h3>Improvisa treinos</h3><p>Chega na areia e monta aula na cabeça. Sem plano, sem progressão. O aluno sente e não volta.</p></div>
+<div class="pc reveal rd4"><span class="pi">🚫</span><h3>Não tem metodologia</h3><p>Você não possui um sistema. Cada aluno é um mundo diferente e você não tem um caminho pronto para nenhum deles.</p></div>
+</div>
+</div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section sol" id="metodo">
+<div class="container">
+<div class="soc">
+<div class="reveal"><span class="stag">A Solução</span>
+<h2 class="stitle">O <span class="hb">Método Professor LR</span> entrega o caminho pronto que você não tinha.</h2>
+<p class="ssub" style="margin-bottom:32px;">Não é mais um curso de teoria. É um sistema prático que você aplica na areia desde a primeira aula. O mesmo método que já treinou mais de 2.000 alunos.</p>
+<a href="#preco" class="btn bp bl">Quero o Método Completo</a></div>
+<div class="sov reveal rd2">
+<div class="scard">
+<span class="scl">O que você recebe</span>
+<h3 class="sct">Tudo pronto. Você só precisa aplicar.</h3>
+<ul class="scheck">
+<li><span class="ck">✓</span> Metodologia completa separada por nível (iniciante, intermediário, avançado e feminino)</li>
+<li><span class="ck">✓</span> Sistema para montar aulas do zero — sem improvisar nunca mais</li>
+<li><span class="ck">✓</span> Estratégia para corrigir alunos e acelerar a evolução deles</li>
+<li><span class="ck">✓</span> Passo a passo para cobrar mais e aumentar seu faturamento</li>
+<li><span class="ck">✓</span> Posicionamento e autoridade para atrair alunos sem depender de indicação</li>
+<li><span class="ck">✓</span> Estrutura completa de aulas de personal treinamento</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MODULES -->
+<section class="section mod" id="modulos">
+<div class="container">
+<div class="tc reveal"><span class="stag">Conteúdo</span>
+<h2 class="stitle">14 módulos. <span class="hl">Zero enrolação.</span></h2>
+<p class="ssub">Cada módulo foi pensado para resolver um problema real do professor de futevôlei. Nada de teoria que não serve para a areia.</p></div>
+<div class="mg">
+<div class="mc reveal"><div class="mnum">01</div><h3>Como montar aulas do zero</h3><p>A estrutura que você precisa para nunca mais chegar na areia sem plano.</p><ul class="mitems"><li>Planejamento de sessão</li><li>Sequência de exercícios</li><li>Tempo e intensidade</li></ul></div>
+<div class="mc reveal rd1"><div class="mnum">02</div><h3>Aplicação da Metodologia LR</h3><p>O núcleo do método: como aplicar passo a passo em qualquer aluno.</p><ul class="mitems"><li>Filosofia da metodologia</li><li>Aplicação prática</li><li>Adaptações necessárias</li></ul></div>
+<div class="mc reveal rd2"><div class="mnum">03</div><h3>Metodologia para Iniciantes</h3><p>Do primeiro toque à primeira jogada. Como pegar quem nunca jogou.</p><ul class="mitems"><li>Fundamentos básicos</li><li>Exercícios de introdução</li><li>Progressão segura</li></ul></div>
+<div class="mc reveal"><div class="mnum">04</div><h3>Metodologia para Intermediários</h3><p>Como levar o aluno do "sei jogar" para o "jogo bem" de forma estruturada.</p><ul class="mitems"><li>Refinamento técnico</li><li>Táticas de jogo</li><li>Correção de vícios</li></ul></div>
+<div class="mc reveal rd1"><div class="mnum o">05</div><h3>Metodologia para Avançados</h3><p>Treinamento de alto nível para atletas que querem competir.</p><ul class="mitems"><li>Leitura de jogo</li><li>Estratégia avançada</li><li>Preparação competitiva</li></ul></div>
+<div class="mc reveal rd2"><div class="mnum o">06</div><h3>Metodologia para Público Feminino</h3><p>Estratégias específicas para o treino feminino, respeitando particularidades.</p><ul class="mitems"><li>Abordagem diferenciada</li><li>Exercícios adaptados</li><li>Ambiente acolhedor</li></ul></div>
+<div class="mc reveal"><div class="mnum">07</div><h3>Aulas de Personal</h3><p>Como estruturar treinos individuais que valem mais caro.</p><ul class="mitems"><li>Estrutura do personal</li><li>Foco individual</li><li>Precificação premium</li></ul></div>
+<div class="mc reveal rd1"><div class="mnum">08</div><h3>Como Corrigir Alunos</h3><p>A arte de identificar erros e aplicar correções que funcionam.</p><ul class="mitems"><li>Diagnóstico rápido</li><li>Correção verbal e visual</li><li>Drills de correção</li></ul></div>
+<div class="mc reveal rd2"><div class="mnum">09</div><h3>Organização dos Treinos</h3><p>Sistemas para gerenciar turmas, horários e níveis sem caos.</p><ul class="mitems"><li>Gestão de turmas</li><li>Rotatividade de alunos</li><li>Logística de treino</li></ul></div>
+<div class="mc reveal"><div class="mnum o">10</div><h3>Aumentar Número de Alunos</h3><p>Estratégias para atrair e reter mais alunos todo mês.</p><ul class="mitems"><li>Captação de alunos</li><li>Retenção e fidelização</li><li>Indicações automáticas</li></ul></div>
+<div class="mc reveal rd1"><div class="mnum o">11</div><h3>Como Cobrar Corretamente</h3><p>Precificação que valoriza seu trabalho e não espanta alunos.</p><ul class="mitems"><li>Tabela de preços</li><li>Pacotes mensais</li><li>Posicionamento de valor</li></ul></div>
+<div class="mc reveal rd2"><div class="mnum o">12</div><h3>Aumentar Seu Faturamento</h3><p>Múltiplas fontes de renda dentro do futevôlei, não só aulas avulsas.</p><ul class="mitems"><li>Diversificação de receita</li><li>Escala de turmas</li><li>Eventos e clínicas</li></ul></div>
+<div class="mc reveal"><div class="mnum">13</div><h3>Posicionamento como Professor</h3><p>Como se tornar a referência que todo aluno procura na cidade.</p><ul class="mitems"><li>Presença digital</li><li>Marca pessoal</li><li>Diferenciação</li></ul></div>
+<div class="mc reveal rd1"><div class="mnum">14</div><h3>Como Criar Autoridade</h3><p>O passo a passo para que os alunos procurem você, não o contrário.</p><ul class="mitems"><li>Construção de credibilidade</li><li>Conteúdo estratégico</li><li>Reputação no esporte</li></ul></div>
+</div>
+</div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section ben" id="beneficios">
+<div class="container">
+<div class="tc reveal"><span class="stag">Transformação</span>
+<h2 class="stitle">Não é só um curso. É uma <span class="hb">mudança de vida.</span></h2>
+<p class="ssub">Você não está comprando aulas em vídeo. Está comprando os próximos 10 anos da sua carreira como professor — encurtados em uma fração do tempo.</p></div>
+<div class="bg">
+<div class="bc reveal"><div class="bi">📈</div><h3>Mais Alunos</h3><p>Aprenda a atrair, converter e reter. Pare de depender de indicação e construa uma carteira cheia.</p></div>
+<div class="bc reveal rd1"><div class="bi o">👑</div><h3>Mais Autoridade</h3><p>Seja a referência que todo atleta procura. Quando você tem método, o aluno sente na primeira aula.</p></div>
+<div class="bc reveal rd2"><div class="bi">💰</div><h3>Mais Renda</h3><p>Cobre o que seu trabalho vale. Monte pacotes, venda mais, escale turmas. O futevôlei paga suas contas.</p></div>
+<div class="bc reveal rd3"><div class="bi o">🛡️</div><h3>Mais Segurança</h3><p>Chegue na areia sabendo exatamente o que fazer. Sem improviso, sem medo, sem insegurança.</p></div>
+</div>
+</div>
+</section>
+
+<!-- BONUS -->
+<section class="section bon" id="bonus">
+<div class="container">
+<div class="boc">
+<div class="bov reveal">
+<div class="emock">
+<div class="ecover">
+<span class="elbl">Ebook Bônus</span>
+<h3 class="et">Metodologia LR Completa</h3>
+<p class="est">Todo o sistema documentado em um ebook prático para você levar para a areia.</p>
+<p class="ea">Lucas Ribeiro · Professor de Futevôlei</p>
+</div>
+<div class="fbadge">Grátis</div>
+</div>
+</div>
+<div class="reveal rd2">
+<span class="stag">Bônus Exclusivo</span>
+<h2 class="stitle">Ganhe o <span class="hl">ebook completo</span> da metodologia.</h2>
+<p class="ssub" style="margin-bottom:28px;">Todo o conteúdo do curso documentado em um ebook prático. Leve para a areia, consulte durante as aulas, use como material de apoio. É seu para sempre.</p>
+<ul class="bfeat">
+<li><span class="ci">✓</span> Metodologia completa em formato escrito</li>
+<li><span class="ci">✓</span> Exercícios e progressões documentados</li>
+<li><span class="ci">✓</span> Acesso digital para consultar onde estiver</li>
+<li><span class="ci">✓</span> Material de apoio para suas aulas</li>
+</ul>
+<div style="margin-top:32px;"><a href="#preco" class="btn bp bl">Quero o Bônus Grátis</a></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section abt" id="sobre">
+<div class="container">
+<div class="abc">
+<div class="abf reveal">
+<div class="abfc">
+<div class="aba">LR</div>
+<h3 class="abn">Lucas Ribeiro</h3>
+<p class="abr">Professor · Criador do Método LR</p>
+</div>
+</div>
+<div class="reveal rd2">
+<span class="stag">Quem é Lucas Ribeiro</span>
+<h2 class="stitle">O professor que já treinou <span class="hb">+2.000 alunos.</span></h2>
+<p class="abt-text">Lucas Ribeiro é professor de futevôlei, criador da Metodologia LR, organizador de torneios e especialista em desenvolvimento de atletas e professores. Depois de anos treinando na areia, ele documentou tudo o que funciona — e descartou o que não funciona — em um método prático que qualquer professor pode aplicar.</p>
+<p class="abt-text">Hoje, sua missão é simples: profissionalizar o ensino do futevôlei no Brasil e ajudar quem ama o esporte a viver dele com dignidade e renda consistente.</p>
+<div class="abcr">
+<div class="cr"><div class="ci">🏐</div><span class="ct">Professor de Futevôlei</span></div>
+<div class="cr"><div class="ci">📚</div><span class="ct">Criador da Metodologia LR</span></div>
+<div class="cr"><div class="ci">🏆</div><span class="ct">Organizador de Torneios</span></div>
+<div class="cr"><div class="ci">🎓</div><span class="ct">Criador de Cursos</span></div>
+<div class="cr"><div class="ci">📈</div><span class="ct">Especialista em Atletas</span></div>
+<div class="cr"><div class="ci">👥</div><span class="ct">Formador de Professores</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="gua">
+<div class="container">
+<div class="reveal">
+<div class="gseal">
+<div style="text-align:center;">
+<div class="sn">7</div>
+<div class="st">Dias</div>
+</div>
+</div>
+<h2>Garantia Incondicional de 7 Dias</h2>
+<p>Se nos primeiros 7 dias você sentir que o Método Professor LR não é para você, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é todo nosso.</p>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="section pri" id="preco">
+<div class="container">
+<div class="tc reveal"><span class="stag">Oferta</span>
+<h2 class="stitle">Comece hoje por <span class="hl">menos do que imagina.</span></h2>
+<p class="ssub">O valor de uma aula de futevôlei. A diferença: você vai aprender a dar centenas delas.</p></div>
+<div class="pric reveal rd2">
+<div class="pcard">
+<span class="pbadge">🔥 Oferta de Lançamento</span>
+<p class="pold">De R$ 497,00</p>
+<p class="plabel">Por apenas</p>
+<div class="pval">R$ 297</div>
+<p class="pinst">ou 12x de R$ 29,70</p>
+<div class="purg">⚡ Esta condição pode subir a qualquer momento. Garanta enquanto está disponível.</div>
+<ul class="pfeat">
+<li><span class="ci">✓</span> Acesso completo aos 14 módulos</li>
+<li><span class="ci">✓</span> Metodologia para todos os níveis</li>
+<li><span class="ci">✓</span> Como montar, corrigir e organizar aulas</li>
+<li><span class="ci">✓</span> Como cobrar e aumentar faturamento</li>
+<li><span class="ci">✓</span> Posicionamento e autoridade</li>
+<li><span class="ci">✓</span> Ebook completo da metodologia (BÔNUS)</li>
+<li><span class="ci">✓</span> Garantia incondicional de 7 dias</li>
+</ul>
+<a href="#" class="btn bp bl" style="width:100%;">Garantir Minha Vaga Agora</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+<div class="container">
+<div class="tc reveal"><span class="stag">Dúvidas</span>
+<h2 class="stitle">Perguntas <span class="hb">Frequentes</span></h2></div>
+<div class="faqc">
+<div class="faqi reveal"><div class="faqq">O curso serve para quem nunca deu aula?<span class="faqicon">+</span></div><div class="faqa"><p>Serve. O Método Professor LR foi criado justamente para quem quer começar do zero. Você aprende desde como montar a primeira aula até como cobrar por ela. Muitos alunos nunca tinham dado aula antes.</p></div></div>
+<div class="faqi reveal"><div class="faqq">Eu já sou professor, vou aprender algo novo?<span class="faqicon">+</span></div><div class="faqa"><p>Sim. Se você já dá aulas mas improvisa, não tem metodologia ou não consegue cobrar bem, o curso vai professionalizar seu trabalho. Você vai ter um sistema pronto para aplicar com qualquer aluno.</p></div></div>
+<div class="faqi reveal"><div class="faqq">Como funciona o acesso ao curso?<span class="faqicon">+</span></div><div class="faqa"><p>O acesso é imediato após a confirmação do pagamento. Você recebe login e senha para uma área de membros onde assiste a todos os módulos no seu ritmo, quando quiser, quantas vezes quiser.</p></div></div>
+<div class="faqi reveal"><div class="faqq">Por quanto tempo tenho acesso?<span class="faqicon">+</span></div><div class="faqa"><p>O acesso é vitalício. Você paga uma vez e tem acesso para sempre, incluindo atualizações futuras do conteúdo.</p></div></div>
+<div class="faqi reveal"><div class="faqq">O ebook realmente vem de graça?<span class="faqicon">+</span></div><div class="faqa"><p>Sim. O ebook com toda a metodologia documentada é um bônus gratuito incluso na compra. Ele serve como material deapoio para você consultar na areia durante as aulas.</p></div></div>
+<div class="faqi reveal"><div class="faqq">E se eu não gostar do curso?<span class="faqicon">+</span></div><div class="faqa"><p>Você tem 7 dias de garantia incondicional. Se não gostar por qualquer motivo, basta enviar um e-mail e devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p></div></div>
+<div class="faqi reveal"><div class="faqq">Quanto consigo ganhar aplicando o método?<span class="faqicon">+</span></div><div class="faqa"><p>Depende do seu esforço e dedicação. O curso ensina precificação, pacotes e estratégias de escala. Muitos professores que aplicam o método conseguem cobrar entre R$ 80 e R$ 200 por aula, dependendo da região e modalidade.</p></div></div>
+<div class="faqi reveal"><div class="faqq">Preciso ter algum equipamento ou espaço?<span class="faqicon">+</span></div><div class="faqa"><p>Não. Você só precisa de uma quadra ou areia de futevôlei e vontade de ensinar. O método funciona em qualquer estrutura, do treino na praia ao personal em quadra.</p></div></div>
+<div class="faqi reveal"><div class="faqq">O curso é só online ou tem encontros ao vivo?<span class="faqicon">+</span></div><div class="faqa"><p>O curso é 100% online, com aulas gravadas que você assiste quando quiser. O conteúdo é prático e direto, pensado para você aplicar imediatamente.</p></div></div>
+<div class="faqi reveal"><div class="faqq">Como faço o pagamento?<span class="faqicon">+</span></div><div class="faqa"><p>O pagamento é feito de forma segura através da plataforma de pagamento. Você pode pagar via Pix, cartão de crédito (em até 12x) ou boleto. O acesso é liberado imediatamente após a confirmação.</p></div></div>
+<div class="faqi reveal"><div class="faqq">O método funciona para o público feminino?<span class="faqicon">+</span></div><div class="faqa"><p>Sim. Existe um módulo inteiro dedicado à metodologia para o público feminino, com estratégias específicas, exercícios adaptados e abordagem diferenciada.</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="fcta">
+<div class="fctac reveal">
+<div class="fcd"><span class="dot"></span> Última chamada — condição promocional ativa</div>
+<h2>Daqui a um ano você vai desejar <span class="gt">ter começado hoje.</span></h2>
+<p>Cada aula sem método é dinheiro deixado na mesa. Cada aluno sem progressão é um aluno que não volta. O Método Professor LR é o atalho que você precisava.</p>
+<a href="#preco" class="btn bp bl">Garantar Minha Vaga por R$ 297</a>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="fc">
+<div class="ft">
+<div class="fb2">
+<div class="logo">Método <span>Professor LR</span></div>
+<p>Transforme seu conhecimento em futevôlei em uma profissão. Aprenda a dar aulas que fazem alunos evoluírem e construa uma renda consistente.</p>
+</div>
+<div class="fcol">
+<h4>Navegação</h4>
+<ul>
+<li><a href="#metodo">O Método</a></li>
+<li><a href="#modulos">Módulos</a></li>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#preco">Comprar</a></li>
+</ul>
+</div>
+<div class="fcol">
+<h4>Suporte</h4>
+<ul>
+<li><a href="#faq">Dúvidas</a></li>
+<li><a href="#">Contato</a></li>
+<li><a href="#">Termos de Uso</a></li>
+<li><a href="#">Privacidade</a></li>
+</ul>
+</div>
+</div>
+<div class="fbottom">
+<p>&copy; 2025 Método Professor LR. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Navbar scroll
+window.addEventListener('scroll',function(){
+var nav=document.getElementById('navbar');
+if(window.scrollY>50){nav.classList.add('scrolled')}else{nav.classList.remove('scrolled')}
+});
+
+// Mobile menu toggle
+var navToggle=document.getElementById('navToggle');
+var navLinks=document.getElementById('navLinks');
+navToggle.addEventListener('click',function(){
+navToggle.classList.toggle('active');
+navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(function(link){
+link.addEventListener('click',function(){
+navToggle.classList.remove('active');
+navLinks.classList.remove('open');
+});
+});
+
+// FAQ accordion
+document.querySelectorAll('.faqi').forEach(function(item){
+var q=item.querySelector('.faqq');
+q.addEventListener('click',function(){
+var isActive=item.classList.contains('active');
+document.querySelectorAll('.faqi').forEach(function(i){i.classList.remove('active')});
+if(!isActive){item.classList.add('active')}
+});
+});
+
+// Reveal on scroll
+var observer=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){entry.target.classList.add('visible')}
+});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(function(el){observer.observe(el)});
+
+// Progress bar animation
+var progressFill=document.getElementById('progressFill');
+var progressLabel=document.getElementById('progressLabel');
+var progressObserver=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+var width=0;
+var interval=setInterval(function(){
+if(width>=100){clearInterval(interval);return}
+width+=2;
+progressFill.style.width=width+'%';
+progressLabel.textContent=width+'%';
+},30);
+}
+});
+},{threshold:0.3});
+if(progressFill){progressObserver.observe(progressFill)};
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+anchor.addEventListener('click',function(e){
+var href=this.getAttribute('href');
+if(href==='#'){return}
+var target=document.querySelector(href);
+if(target){
+e.preventDefault();
+target.scrollIntoView({behavior:'smooth',block:'start'});
+}
+});
+});
+</script>
+
+</body>
+</html>
